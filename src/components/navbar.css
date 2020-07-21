@@ -1,0 +1,18 @@
+.navbar {
+  background-color: #00aef9;
+  color: #ffffff;
+}
+
+.nav > div > ul > li {
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-divider.hover {
+  background-color: #00aef9;
+}
+
+#something {
+  background-color: #00aef9;
+  color: #00aef9;
+}
