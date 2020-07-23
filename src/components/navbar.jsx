@@ -3,10 +3,31 @@ import "./navbar.css";
 
 class CustomNavBar extends Component {
   state = {};
+
+  componentDidMount() {
+    this.handleAsync();
+  }
+
+  async handleAsync() {
+    console.log("handleAsync clicked!");
+    const res = await fetch("http://localhost:3001/test", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const txt = await res.json;
+    console.log("fetch sent");
+    console.log(txt);
+  }
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
-        <a className="navbar-brand" href="#">
+        <a
+          className="navbar-brand"
+          href="#"
+          // onClick={this.handleAsync}
+        >
           Navbar
         </a>
         <button
@@ -24,7 +45,7 @@ class CustomNavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#" style={{ color: "white" }}>
+              <a className="nav-link" href="#">
                 Map <span className="sr-only">(current)</span>
               </a>
             </li>
@@ -35,7 +56,7 @@ class CustomNavBar extends Component {
             </li>
             <li
               className="nav-item dropdown"
-              style={{ color: "white", backgroundColor: "#00aef9" }}
+              style={{ backgroundColor: "#00aef9" }}
             >
               <a
                 className="nav-link dropdown-toggle"
@@ -69,11 +90,14 @@ class CustomNavBar extends Component {
                   Another action
                 </a>
                 <div
-                  className="dropdown-divider"
+                  className="dropdown-divider dropdown-divider-blue"
                   id="something"
                   style={{
-                    borderColor: "blue",
-                    backgroundColor: "#000000"*,
+                    color: "#00aef9",
+                    borderColor: "#00aef9",
+                    backgroundColor: "#ffffff",
+                    borderTop: "10px double #00aef9",
+                    margin: "0px",
                   }}
                 ></div>
                 <a
@@ -85,16 +109,6 @@ class CustomNavBar extends Component {
                 </a>
               </div>
             </li>
-            {/* <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
-            </li> */}
           </ul>
         </div>
       </nav>
