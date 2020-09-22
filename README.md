@@ -1,68 +1,20 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h2>Hello! Welcome to my little side project</h2>
 
-In the project directory, you can run:
+![Cover Image](/docs/coverimage.png)
+<h3>Project information</h3>
 
-### `npm start`
+I wanted to learn React and more on front-end web development, which is why I started this project. I figured that a way to visualise where infectious COVID-19 people have been would be a fun and relevant way to start. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This was website was done in React with Node.js to host the web server, particularly Express.js. Website was scrapped using Puppeteer Node.js API. Used Geocode module to reverse search Google Maps using the locations, which was returned in LatLng.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h3>Miscellaneous information</h3>
 
-### `npm test`
+What you see in this diagram are the public places visited by cases in the community during Infectious Period as of 23rd September 2020.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+These public places had been visited for more than 30 minutes by the confirmed cases in the community. Data is only of the past 2 weeks due to the incubation period of COVID-19.
 
-### `npm run build`
+Information taken from:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+https://www.gov.sg/article/covid-19-public-places-visited-by-cases-in-the-community-during-infectious-period
