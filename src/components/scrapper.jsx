@@ -15,9 +15,4 @@ async function scrapeProduct(url) {
 
   browser.close();
 }
-
-// scrapeProduct(
-//   "https://www.gov.sg/article/covid-19-public-places-visited-by-cases-in-the-community-during-infectious-period"
-// );
-
 export default scrapeProduct;

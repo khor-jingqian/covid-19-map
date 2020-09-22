@@ -12,13 +12,20 @@ class CustomMap extends Component {
   };
 
   componentDidMount() {
-    this.handleAsync();
-    this.placeMarkers();
+    var current = this;
+    var promisedMarkers = this.handleAsync();
+    promisedMarkers.then(function (arr) {
+      current.setState({
+        markers: arr,
+      });
+    });
   }
 
   async handleAsync() {
     let dataEntries = [];
     let mar = [];
+    var promiseList = [];
+
     const res = await fetch("/test")
       .then((res) => res.json())
       .then((cus) => {
@@ -27,38 +34,33 @@ class CustomMap extends Component {
 
     for (var m = 0; m < dataEntries.length; m++) {
       let entry = dataEntries[m];
-      console.log("this is before:  ", entry);
-
       let newEntry = entry.replace("\t", "").replace("\t", "").split(/\r?\n/);
-      console.log("this is after:  ", newEntry);
       for (var i = 0; i < newEntry.length; i++) {
-        if (
-          newEntry[i].length != 0 &&
-          (newEntry[i].charAt(0) > "9" || newEntry[i].charAt(0) < 0)
-        ) {
-          Geocode.fromAddress(newEntry[i]).then(
-            (response) => {
-              const { lat, lng } = response.results[0].geometry.location;
-              mar[i] = { lat, lng };
-            },
-            (error) => {
-              console.log(newEntry[i]);
-              console.error(error);
-            }
+        if (newEntry[i].length !== 0 && isNaN(newEntry[i].charAt(0))) {
+          promiseList.push(
+            new Promise((resolve, reject) => {
+              Geocode.fromAddress(newEntry[i]).then(
+                (response) => {
+                  const { lat, lng } = response.results[0].geometry.location;
+                  mar.push([lat, lng]);
+                  resolve();
+                },
+                (error) => {
+                  console.log(newEntry[i]);
+                  console.error(error);
+                  reject();
+                }
+              );
+            })
           );
+          break;
         }
       }
-
-      dataEntries[m] = newEntry;
     }
-    this.setState({
-      data: dataEntries,
-      markers: mar,
+    return await Promise.all(promiseList).then(() => {
+      return mar;
     });
-    console.log("this is data .... ", dataEntries);
   }
-
-  async placeMarkers() {}
 
   render() {
     return (

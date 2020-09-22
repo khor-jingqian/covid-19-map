@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.chrome.dll
+.interactive_ui_tests.exe
+src/server/node_modules/puppeteer/.local-chromium/win64-782078/chrome-win/chrome.dll
+src/server/node_modules/puppeteer/.local-chromium/win64-782078/chrome-win/interactive_ui_tests.exe

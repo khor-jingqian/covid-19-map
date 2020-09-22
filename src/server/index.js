@@ -9,7 +9,6 @@ async function scrapeProduct(url) {
   const page = await browser.newPage();
   await page.goto(url);
 
-  // await page.waitFor('table[class="table"]');
   await page.waitFor("tr");
 
   const tableContent = await page.evaluate(() => {
